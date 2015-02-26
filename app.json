@@ -1,6 +1,6 @@
 {
     "name": "Contact Map Demo App",
-    "description": "Simple app showing how to access Salesforce data in Node.js using Heroku. Just click 'View it' at the bottom once you've deployed to continue setup.",
+    "description": "Shows how to access Salesforce data in Node.js using Heroku. Just click 'View it' at the bottom once you've deployed to continue setup.",
     "logo": "https://raw.githubusercontent.com/heroku/heroku-connect-quickstart/master/connect-logo.png",
     "website": "https://github.com/scottpersinger/contactmap-demoapp",
     "repository": "https://github.com/scottpersinger/contactmap-demoapp",
