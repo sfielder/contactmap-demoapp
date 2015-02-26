@@ -25,11 +25,11 @@ Click on the Heroku Connect addon on your new app to access the Heroku Connect d
 Add a mapping for the `Contact` object in Salesforce, and select these fields:
 
 ```
-Name
 Email
-MailingStreet
 MailingCity
 MailingState
+MailingStreet
+Name
 ```
 
 And save the mapping. That's it! Once the data is synchronized just reload the Contact Map app to see 200
