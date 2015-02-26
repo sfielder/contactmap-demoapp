@@ -1,36 +1,39 @@
-# node-js-getting-started
+# Contact Mapper
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+This is a very basic demonstation app for [Heroku Connect](https://www.heroku.com/connect). It is based
+on the [Heroku Node starter app](https://github.com/heroku/node-js-getting-started).
 
-This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+The application relies on Heroku Connect to sync Contact records into Postgres. We load contact
+records from the db, then use the Google Geolocation API to geocode the address so we can locate
+each contact proerly on the map.
 
-## Running Locally
+For better performance geocoded addresses are stored back in our database so we only have to look
+them up once.
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+## Install
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+Use the Heroku Button below to clone the app:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/scottpersinger/contactmap-demoapp)
+
+## Provision Heroku Connect
+
+Click on the Heroku Connect addon on your new app to access the Heroku Connect dashboard.
+
+Add a mapping for the `Contact` object in Salesforce, and select these fields:
+
+```
+Name
+Email
+MailingStreet
+MailingCity
+MailingState
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+That's it! Once the data is synchronized just reload the Contact Map app to see 200
+Contact records placed on a Google Map of the United States.
 
-## Deploying to Heroku
+## Understanding the app
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
 
-## Documentation
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)

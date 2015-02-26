@@ -17,8 +17,6 @@ var Contact = db.define('Contact', {
 	email: Sequelize.STRING,
 	name: Sequelize.STRING,
 	mailingcity: Sequelize.STRING,
-	mailingcountry: Sequelize.STRING,
-	mailingpostalcode: Sequelize.STRING,
 	mailingstate: Sequelize.STRING,
 	mailingstreet: Sequelize.STRING
 }, {
