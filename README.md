@@ -10,6 +10,8 @@ each contact proerly on the map.
 For better performance geocoded addresses are stored back in our database so we only have to look
 them up once.
 
+![alt tag](public/screenshot1.png)
+
 ## Install
 
 Use the Heroku Button below to clone the app:
