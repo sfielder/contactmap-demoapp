@@ -110,6 +110,19 @@ app.get('/', function(req, res) {
 	});
 });
 
+app.get('/create', function(req, res){
+  // Redirect to Heroku Connect dashboard to finish setup
+  var hostRe = new RegExp(/^([^.]+)\.herokuapp\.com$/);
+
+  var match = req.headers.host.match(hostRe);
+
+  if (match) {
+    res.redirect(create_url+'?create='+match[1]);
+  } else {
+    res.status(400).send("You need to be running on Heroku!");
+  }
+});
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });

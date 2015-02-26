@@ -5,9 +5,9 @@ on the [Heroku Node starter app](https://github.com/heroku/node-js-getting-start
 
 The application relies on Heroku Connect to sync Contact records into Postgres. We load contact
 records from the db, then use the Google Geolocation API to geocode the address so we can locate
-each contact proerly on the map.
+each contact properly on the map.
 
-For better performance geocoded addresses are stored back in our database so we only have to look
+For better performance address locations are stored back in our database so we only have to look
 them up once.
 
 ![alt tag](public/screenshot1.png)
@@ -32,7 +32,7 @@ MailingCity
 MailingState
 ```
 
-That's it! Once the data is synchronized just reload the Contact Map app to see 200
+And save the mapping. That's it! Once the data is synchronized just reload the Contact Map app to see 200
 Contact records placed on a Google Map of the United States.
 
 ## Understanding the app
