@@ -16,20 +16,20 @@
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
-        function addMarker(poi) {
+        function addMarker(location) {
           var marker = new google.maps.Marker({
-              position: {lat: poi.lat, lng: poi.lon},
+              position: {lat: location.lat, lng: location.lon},
               map: map,
               title: null
           });
           var infowindow = new google.maps.InfoWindow({
-              content: unescape(poi.name)
+              content: unescape(location.name)
           });
           infowindow.open(map,marker);
         }
 
-        <% pois.forEach(function(poi) { %>
-          addMarker(JSON.parse('<%- JSON.stringify(poi) %>'));
+        <% contact_locations.forEach(function(location) { %>
+          addMarker(JSON.parse('<%- JSON.stringify(location) %>'));
         <% }); %>
 
         setTimeout(function() {
