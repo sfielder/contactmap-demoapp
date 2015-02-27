@@ -37,9 +37,9 @@ Contact records placed on a Google Map of the United States.
 
 ## Understanding the app
 
-This app access data in a Postgres database. To access the database we use
+This app accesses data in a Postgres database. To access the database we use
 the [Node PG](https://www.npmjs.com/package/pg) postgres driver and the
-wonderful (Sequelize)[http://sequelize.readthedocs.org/] ORM for Node.
+wonderful [Sequelize](http://sequelize.readthedocs.org/) ORM for Node.
 
 In [index.js](index.js) we define two model classes. One is the `Contact`
 class which pulls records from the `salesforce` schema which is synchronized
@@ -50,7 +50,7 @@ Finally the [geocde.js](geocode.js) module takes care of sending a `Contact`
 address to the Google Geocode API to retrieve the latitude/longitude for
 displaying cards on the map.
 
-The list of Contacts with annotated Lat/Lng coordinates is passed to index.html.
+The list of Contacts with annotated Lat/Lng coordinates is passed to [index.html](index.html).
 The html page contains JS to create the map and annotate it with all the contacts.
 
 
