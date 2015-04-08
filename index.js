@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
 var async = require('async');
+var HashMap = require('hashmap');
 var geocode = require('./geocode');
 
 // ************** DATABASE MODELS ***********************
@@ -29,6 +30,20 @@ var Contact = db.define('Contact', {
 	}
 );
 
+Account = db.define('Account', {
+	id: Sequelize.INTEGER,
+	sfid: Sequelize.STRING,
+	billingcity: Sequelize.STRING,
+	billingcountry: Sequelize.STRING
+}, {
+	timestamps: false,
+	freezeTableName: true,
+	schema: 'salesforce',
+	tableName: 'account'
+	}
+);
+
+
 Geocode = db.define('geocode', {
     id: Sequelize.INTEGER,
     address: Sequelize.STRING,
@@ -44,12 +59,12 @@ db.sync();
 var contact_locations = [];
 
 function geocode_contact(contact, callback) {
-	if (contact.values.mailingstreet || 
-		contact.values.mailingcity || 
+	if (contact.values.mailingstreet ||
+		contact.values.mailingcity ||
 		contact.values.mailingstate) {
 
-		var addr = contact.values.mailingstreet + "," + 
-					contact.values.mailingcity + "," + 
+		var addr = contact.values.mailingstreet + "," +
+					contact.values.mailingcity + "," +
 					contact.values.mailingstate;
 
 		geocode(addr, function(geocode) {
@@ -71,7 +86,6 @@ function load_contacts(callback) {
 }
 
 
-
 // EXPRESS
 
 var express = require('express');
@@ -88,6 +102,39 @@ app.get('/', function(req, res) {
 		res.render('index', {contact_locations: contact_locations.filter(function(val) { return val })});
 	});
 });
+
+app.get('/accounts', function(req, res) {
+
+	Account.findAll().then(function(rows){
+		console.log("rows " + JSON.stringify(rows));
+
+		map = new HashMap();
+		assoc_array = [];
+
+		for(var i = 0; i < rows.length; i++){
+
+			if("undefined" != typeof assoc_array[rows[i].billingcountry]) {
+				map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+
+			}
+			else {
+				assoc_array[rows[i].billingcountry] = new Array();
+				map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+
+			}
+
+
+		}
+
+		console.log("map " + JSON.stringify(map));
+
+		res.render('accounts', {account_locations: rows, account_map: map});
+
+	});
+
+
+});
+
 
 app.get('/create', function(req, res){
   var create_url = 'https://connect.heroku.com/dashboard-next/create-connection';
