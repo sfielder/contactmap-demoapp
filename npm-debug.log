@@ -1,0 +1,463 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.13
+3 info using node@v0.10.26
+4 verbose node symlink /usr/local/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/sfielder/Documents/Warehouse_workspace/contactmap-demoapp',
+6 verbose install   [ 'async', 'ejs', 'express', 'pg', 'pg-hstore', 'sequelize' ] ]
+7 info preinstall node-js-getting-started@0.1.2
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'express@~4.9.x', null ]
+10 verbose cache add name=undefined spec="express@~4.9.x" args=["express@~4.9.x",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'express@~4.9.x',
+11 verbose parsed url   path: 'express@~4.9.x',
+11 verbose parsed url   href: 'express@~4.9.x' }
+12 verbose cache add [ 'async@^0.9.0', null ]
+13 verbose cache add name=undefined spec="async@^0.9.0" args=["async@^0.9.0",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'async@^0.9.0',
+14 verbose parsed url   path: 'async@^0.9.0',
+14 verbose parsed url   href: 'async@^0.9.0' }
+15 verbose cache add [ 'ejs@^2.3.1', null ]
+16 verbose cache add name=undefined spec="ejs@^2.3.1" args=["ejs@^2.3.1",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'ejs@^2.3.1',
+17 verbose parsed url   path: 'ejs@^2.3.1',
+17 verbose parsed url   href: 'ejs@^2.3.1' }
+18 verbose cache add name="express" spec="~4.9.x" args=["express","~4.9.x"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '~4.9.x',
+19 verbose parsed url   path: '~4.9.x',
+19 verbose parsed url   href: '~4.9.x' }
+20 verbose addNamed [ 'express', '~4.9.x' ]
+21 verbose addNamed [ null, '>=4.9.0-0 <4.10.0-0' ]
+22 verbose cache add name="async" spec="^0.9.0" args=["async","^0.9.0"]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: '^0.9.0',
+23 verbose parsed url   path: '^0.9.0',
+23 verbose parsed url   href: '^0.9.0' }
+24 verbose addNamed [ 'async', '^0.9.0' ]
+25 verbose addNamed [ null, '>=0.9.0-0 <0.10.0-0' ]
+26 verbose cache add [ 'pg@^4.3.0', null ]
+27 verbose cache add name=undefined spec="pg@^4.3.0" args=["pg@^4.3.0",null]
+28 verbose parsed url { protocol: null,
+28 verbose parsed url   slashes: null,
+28 verbose parsed url   auth: null,
+28 verbose parsed url   host: null,
+28 verbose parsed url   port: null,
+28 verbose parsed url   hostname: null,
+28 verbose parsed url   hash: null,
+28 verbose parsed url   search: null,
+28 verbose parsed url   query: null,
+28 verbose parsed url   pathname: 'pg@^4.3.0',
+28 verbose parsed url   path: 'pg@^4.3.0',
+28 verbose parsed url   href: 'pg@^4.3.0' }
+29 verbose cache add [ 'pg-hstore@^2.3.1', null ]
+30 verbose cache add name=undefined spec="pg-hstore@^2.3.1" args=["pg-hstore@^2.3.1",null]
+31 verbose parsed url { protocol: null,
+31 verbose parsed url   slashes: null,
+31 verbose parsed url   auth: null,
+31 verbose parsed url   host: null,
+31 verbose parsed url   port: null,
+31 verbose parsed url   hostname: null,
+31 verbose parsed url   hash: null,
+31 verbose parsed url   search: null,
+31 verbose parsed url   query: null,
+31 verbose parsed url   pathname: 'pg-hstore@^2.3.1',
+31 verbose parsed url   path: 'pg-hstore@^2.3.1',
+31 verbose parsed url   href: 'pg-hstore@^2.3.1' }
+32 verbose cache add [ 'sequelize@^2.0.3', null ]
+33 verbose cache add name=undefined spec="sequelize@^2.0.3" args=["sequelize@^2.0.3",null]
+34 verbose parsed url { protocol: null,
+34 verbose parsed url   slashes: null,
+34 verbose parsed url   auth: null,
+34 verbose parsed url   host: null,
+34 verbose parsed url   port: null,
+34 verbose parsed url   hostname: null,
+34 verbose parsed url   hash: null,
+34 verbose parsed url   search: null,
+34 verbose parsed url   query: null,
+34 verbose parsed url   pathname: 'sequelize@^2.0.3',
+34 verbose parsed url   path: 'sequelize@^2.0.3',
+34 verbose parsed url   href: 'sequelize@^2.0.3' }
+35 verbose cache add name="ejs" spec="^2.3.1" args=["ejs","^2.3.1"]
+36 verbose parsed url { protocol: null,
+36 verbose parsed url   slashes: null,
+36 verbose parsed url   auth: null,
+36 verbose parsed url   host: null,
+36 verbose parsed url   port: null,
+36 verbose parsed url   hostname: null,
+36 verbose parsed url   hash: null,
+36 verbose parsed url   search: null,
+36 verbose parsed url   query: null,
+36 verbose parsed url   pathname: '^2.3.1',
+36 verbose parsed url   path: '^2.3.1',
+36 verbose parsed url   href: '^2.3.1' }
+37 verbose addNamed [ 'ejs', '^2.3.1' ]
+38 verbose addNamed [ null, '>=2.3.1-0 <3.0.0-0' ]
+39 silly lockFile e3d29b08-express-4-9-x express@~4.9.x
+40 verbose lock express@~4.9.x /Users/sfielder/.npm/e3d29b08-express-4-9-x.lock
+41 silly lockFile 7f39d2c2-async-0-9-0 async@^0.9.0
+42 verbose lock async@^0.9.0 /Users/sfielder/.npm/7f39d2c2-async-0-9-0.lock
+43 silly lockFile 79d6d594-ejs-2-3-1 ejs@^2.3.1
+44 verbose lock ejs@^2.3.1 /Users/sfielder/.npm/79d6d594-ejs-2-3-1.lock
+45 verbose cache add name="pg" spec="^4.3.0" args=["pg","^4.3.0"]
+46 verbose parsed url { protocol: null,
+46 verbose parsed url   slashes: null,
+46 verbose parsed url   auth: null,
+46 verbose parsed url   host: null,
+46 verbose parsed url   port: null,
+46 verbose parsed url   hostname: null,
+46 verbose parsed url   hash: null,
+46 verbose parsed url   search: null,
+46 verbose parsed url   query: null,
+46 verbose parsed url   pathname: '^4.3.0',
+46 verbose parsed url   path: '^4.3.0',
+46 verbose parsed url   href: '^4.3.0' }
+47 verbose addNamed [ 'pg', '^4.3.0' ]
+48 verbose addNamed [ null, '>=4.3.0-0 <5.0.0-0' ]
+49 silly lockFile 1e887583-pg-4-3-0 pg@^4.3.0
+50 verbose lock pg@^4.3.0 /Users/sfielder/.npm/1e887583-pg-4-3-0.lock
+51 verbose cache add name="pg-hstore" spec="^2.3.1" args=["pg-hstore","^2.3.1"]
+52 verbose parsed url { protocol: null,
+52 verbose parsed url   slashes: null,
+52 verbose parsed url   auth: null,
+52 verbose parsed url   host: null,
+52 verbose parsed url   port: null,
+52 verbose parsed url   hostname: null,
+52 verbose parsed url   hash: null,
+52 verbose parsed url   search: null,
+52 verbose parsed url   query: null,
+52 verbose parsed url   pathname: '^2.3.1',
+52 verbose parsed url   path: '^2.3.1',
+52 verbose parsed url   href: '^2.3.1' }
+53 verbose addNamed [ 'pg-hstore', '^2.3.1' ]
+54 verbose addNamed [ null, '>=2.3.1-0 <3.0.0-0' ]
+55 silly lockFile d81490db-pg-hstore-2-3-1 pg-hstore@^2.3.1
+56 verbose lock pg-hstore@^2.3.1 /Users/sfielder/.npm/d81490db-pg-hstore-2-3-1.lock
+57 verbose cache add name="sequelize" spec="^2.0.3" args=["sequelize","^2.0.3"]
+58 verbose parsed url { protocol: null,
+58 verbose parsed url   slashes: null,
+58 verbose parsed url   auth: null,
+58 verbose parsed url   host: null,
+58 verbose parsed url   port: null,
+58 verbose parsed url   hostname: null,
+58 verbose parsed url   hash: null,
+58 verbose parsed url   search: null,
+58 verbose parsed url   query: null,
+58 verbose parsed url   pathname: '^2.0.3',
+58 verbose parsed url   path: '^2.0.3',
+58 verbose parsed url   href: '^2.0.3' }
+59 verbose addNamed [ 'sequelize', '^2.0.3' ]
+60 verbose addNamed [ null, '>=2.0.3-0 <3.0.0-0' ]
+61 silly lockFile 453b3edc-sequelize-2-0-3 sequelize@^2.0.3
+62 verbose lock sequelize@^2.0.3 /Users/sfielder/.npm/453b3edc-sequelize-2-0-3.lock
+63 silly addNameRange { name: 'express', range: '>=4.9.0-0 <4.10.0-0', hasData: false }
+64 silly addNameRange { name: 'async', range: '>=0.9.0-0 <0.10.0-0', hasData: false }
+65 silly addNameRange { name: 'ejs', range: '>=2.3.1-0 <3.0.0-0', hasData: false }
+66 silly addNameRange { name: 'pg', range: '>=4.3.0-0 <5.0.0-0', hasData: false }
+67 silly addNameRange { name: 'pg-hstore',
+67 silly addNameRange   range: '>=2.3.1-0 <3.0.0-0',
+67 silly addNameRange   hasData: false }
+68 silly addNameRange { name: 'sequelize',
+68 silly addNameRange   range: '>=2.0.3-0 <3.0.0-0',
+68 silly addNameRange   hasData: false }
+69 verbose url raw pg-hstore
+70 verbose url resolving [ 'https://registry.npmjs.org/', './pg-hstore' ]
+71 verbose url resolved https://registry.npmjs.org/pg-hstore
+72 info trying registry request attempt 1 at 11:25:32
+73 http GET https://registry.npmjs.org/pg-hstore
+74 verbose url raw sequelize
+75 verbose url resolving [ 'https://registry.npmjs.org/', './sequelize' ]
+76 verbose url resolved https://registry.npmjs.org/sequelize
+77 info trying registry request attempt 1 at 11:25:32
+78 http GET https://registry.npmjs.org/sequelize
+79 verbose url raw async
+80 verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+81 verbose url resolved https://registry.npmjs.org/async
+82 info trying registry request attempt 1 at 11:25:32
+83 verbose etag "5T2W7Y64A5JSV7S9SG8WBWL5F"
+84 http GET https://registry.npmjs.org/async
+85 verbose url raw ejs
+86 verbose url resolving [ 'https://registry.npmjs.org/', './ejs' ]
+87 verbose url resolved https://registry.npmjs.org/ejs
+88 info trying registry request attempt 1 at 11:25:32
+89 verbose etag "34ELEW2AO93BZ649SIH4MAZGG"
+90 http GET https://registry.npmjs.org/ejs
+91 verbose url raw pg
+92 verbose url resolving [ 'https://registry.npmjs.org/', './pg' ]
+93 verbose url resolved https://registry.npmjs.org/pg
+94 info trying registry request attempt 1 at 11:25:32
+95 verbose etag "9H7ZFYGMK8HM6C431VUBY3BSL"
+96 http GET https://registry.npmjs.org/pg
+97 verbose url raw express
+98 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+99 verbose url resolved https://registry.npmjs.org/express
+100 info trying registry request attempt 1 at 11:25:32
+101 verbose etag "C4F8T6N1Q2G5OYIZL3CMXG287"
+102 http GET https://registry.npmjs.org/express
+103 http 200 https://registry.npmjs.org/ejs
+104 silly registry.get cb [ 200,
+104 silly registry.get   { date: 'Wed, 08 Apr 2015 15:25:32 GMT',
+104 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+104 silly registry.get     etag: '"3WHTP09A5ITO6OPABJJNLJWDQ"',
+104 silly registry.get     'content-type': 'application/json',
+104 silly registry.get     'cache-control': 'max-age=60',
+104 silly registry.get     'content-length': '45002',
+104 silly registry.get     'accept-ranges': 'bytes',
+104 silly registry.get     via: '1.1 varnish',
+104 silly registry.get     age: '26',
+104 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
+104 silly registry.get     'x-cache': 'HIT',
+104 silly registry.get     'x-cache-hits': '2',
+104 silly registry.get     'x-timer': 'S1428506732.602500,VS0,VE0',
+104 silly registry.get     vary: 'Accept',
+104 silly registry.get     'keep-alive': 'timeout=10, max=50',
+104 silly registry.get     connection: 'Keep-Alive' } ]
+105 silly addNameRange number 2 { name: 'ejs', range: '>=2.3.1-0 <3.0.0-0', hasData: true }
+106 silly addNameRange versions [ 'ejs',
+106 silly addNameRange   [ '0.0.1',
+106 silly addNameRange     '0.0.2',
+106 silly addNameRange     '0.0.3',
+106 silly addNameRange     '0.0.4',
+106 silly addNameRange     '0.1.0',
+106 silly addNameRange     '0.2.0',
+106 silly addNameRange     '0.2.1',
+106 silly addNameRange     '0.3.0',
+106 silly addNameRange     '0.3.1',
+106 silly addNameRange     '0.4.0',
+106 silly addNameRange     '0.4.1',
+106 silly addNameRange     '0.4.2',
+106 silly addNameRange     '0.4.3',
+106 silly addNameRange     '0.5.0',
+106 silly addNameRange     '0.6.0',
+106 silly addNameRange     '0.6.1',
+106 silly addNameRange     '0.7.0',
+106 silly addNameRange     '0.7.1',
+106 silly addNameRange     '0.7.2',
+106 silly addNameRange     '0.8.0',
+106 silly addNameRange     '0.8.1',
+106 silly addNameRange     '0.8.2',
+106 silly addNameRange     '0.8.3',
+106 silly addNameRange     '0.8.4',
+106 silly addNameRange     '0.8.5',
+106 silly addNameRange     '0.8.6',
+106 silly addNameRange     '0.8.8',
+106 silly addNameRange     '1.0.0',
+106 silly addNameRange     '2.0.2',
+106 silly addNameRange     '2.0.3',
+106 silly addNameRange     '2.0.4',
+106 silly addNameRange     '2.0.5',
+106 silly addNameRange     '2.0.6',
+106 silly addNameRange     '2.0.7',
+106 silly addNameRange     '2.0.8',
+106 silly addNameRange     '2.1.1',
+106 silly addNameRange     '2.1.2',
+106 silly addNameRange     '2.1.3',
+106 silly addNameRange     '2.1.4',
+106 silly addNameRange     '2.2.1',
+106 silly addNameRange     '2.2.2',
+106 silly addNameRange     '2.2.3',
+106 silly addNameRange     '2.2.4',
+106 silly addNameRange     '2.3.1' ] ]
+107 verbose addNamed [ 'ejs', '2.3.1' ]
+108 verbose addNamed [ '2.3.1', '2.3.1' ]
+109 silly lockFile 823d5f08-ejs-2-3-1 ejs@2.3.1
+110 verbose lock ejs@2.3.1 /Users/sfielder/.npm/823d5f08-ejs-2-3-1.lock
+111 silly lockFile f5dbddfd-stry-npmjs-org-ejs-ejs-2-3-1-tgz https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+112 verbose lock https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz /Users/sfielder/.npm/f5dbddfd-stry-npmjs-org-ejs-ejs-2-3-1-tgz.lock
+113 verbose addRemoteTarball [ 'https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz',
+113 verbose addRemoteTarball   'a697d98ac401e32a99c3deed92c60c19b6199a7f' ]
+114 info retry fetch attempt 1 at 11:25:32
+115 verbose fetch to= /var/folders/0m/t3xqm78s6l5gnvscv6t3qg4w2l8gpy/T/npm-4390-bg46Tj0V/registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+116 http GET https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+117 http 200 https://registry.npmjs.org/async
+118 silly registry.get cb [ 200,
+118 silly registry.get   { date: 'Wed, 08 Apr 2015 15:25:32 GMT',
+118 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+118 silly registry.get     etag: '"8HIAMS5O33NF2IZG8RTXJQZZU"',
+118 silly registry.get     'content-type': 'application/json',
+118 silly registry.get     'cache-control': 'max-age=60',
+118 silly registry.get     'content-length': '101629',
+118 silly registry.get     'accept-ranges': 'bytes',
+118 silly registry.get     via: '1.1 varnish',
+118 silly registry.get     age: '49',
+118 silly registry.get     'x-served-by': 'cache-jfk1020-JFK',
+118 silly registry.get     'x-cache': 'HIT',
+118 silly registry.get     'x-cache-hits': '5',
+118 silly registry.get     'x-timer': 'S1428506732.596571,VS0,VE0',
+118 silly registry.get     vary: 'Accept',
+118 silly registry.get     'keep-alive': 'timeout=10, max=50',
+118 silly registry.get     connection: 'Keep-Alive' } ]
+119 http 200 https://registry.npmjs.org/pg-hstore
+120 silly registry.get cb [ 200,
+120 silly registry.get   { date: 'Wed, 08 Apr 2015 15:25:32 GMT',
+120 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+120 silly registry.get     etag: '"EU4FMT1BZBBONIG976BUCA10E"',
+120 silly registry.get     'content-type': 'application/json',
+120 silly registry.get     'cache-control': 'max-age=60',
+120 silly registry.get     'content-length': '16606',
+120 silly registry.get     'accept-ranges': 'bytes',
+120 silly registry.get     via: '1.1 varnish',
+120 silly registry.get     age: '0',
+120 silly registry.get     'x-served-by': 'cache-jfk1028-JFK',
+120 silly registry.get     'x-cache': 'MISS',
+120 silly registry.get     'x-cache-hits': '0',
+120 silly registry.get     'x-timer': 'S1428506732.608530,VS0,VE86',
+120 silly registry.get     vary: 'Accept',
+120 silly registry.get     'keep-alive': 'timeout=10, max=50',
+120 silly registry.get     connection: 'Keep-Alive' } ]
+121 silly addNameRange number 2 { name: 'async', range: '>=0.9.0-0 <0.10.0-0', hasData: true }
+122 silly addNameRange versions [ 'async',
+122 silly addNameRange   [ '0.1.0',
+122 silly addNameRange     '0.1.1',
+122 silly addNameRange     '0.1.2',
+122 silly addNameRange     '0.1.3',
+122 silly addNameRange     '0.1.4',
+122 silly addNameRange     '0.1.5',
+122 silly addNameRange     '0.1.6',
+122 silly addNameRange     '0.1.7',
+122 silly addNameRange     '0.1.8',
+122 silly addNameRange     '0.1.9',
+122 silly addNameRange     '0.1.10',
+122 silly addNameRange     '0.1.11',
+122 silly addNameRange     '0.1.12',
+122 silly addNameRange     '0.1.13',
+122 silly addNameRange     '0.1.14',
+122 silly addNameRange     '0.1.15',
+122 silly addNameRange     '0.1.16',
+122 silly addNameRange     '0.1.17',
+122 silly addNameRange     '0.1.18',
+122 silly addNameRange     '0.1.19',
+122 silly addNameRange     '0.1.20',
+122 silly addNameRange     '0.1.21',
+122 silly addNameRange     '0.1.22',
+122 silly addNameRange     '0.2.0',
+122 silly addNameRange     '0.2.1',
+122 silly addNameRange     '0.2.2',
+122 silly addNameRange     '0.2.3',
+122 silly addNameRange     '0.2.4',
+122 silly addNameRange     '0.2.5',
+122 silly addNameRange     '0.2.6',
+122 silly addNameRange     '0.2.7',
+122 silly addNameRange     '0.2.8',
+122 silly addNameRange     '0.2.9',
+122 silly addNameRange     '0.2.10',
+122 silly addNameRange     '0.3.0',
+122 silly addNameRange     '0.4.0',
+122 silly addNameRange     '0.4.1',
+122 silly addNameRange     '0.5.0',
+122 silly addNameRange     '0.6.0',
+122 silly addNameRange     '0.6.1',
+122 silly addNameRange     '0.6.2',
+122 silly addNameRange     '0.7.0',
+122 silly addNameRange     '0.8.0',
+122 silly addNameRange     '0.9.0' ] ]
+123 verbose addNamed [ 'async', '0.9.0' ]
+124 verbose addNamed [ '0.9.0', '0.9.0' ]
+125 silly lockFile 9a58a886-async-0-9-0 async@0.9.0
+126 verbose lock async@0.9.0 /Users/sfielder/.npm/9a58a886-async-0-9-0.lock
+127 silly addNameRange number 2 { name: 'pg-hstore', range: '>=2.3.1-0 <3.0.0-0', hasData: true }
+128 silly addNameRange versions [ 'pg-hstore',
+128 silly addNameRange   [ '1.0.0',
+128 silly addNameRange     '1.0.1',
+128 silly addNameRange     '1.0.2',
+128 silly addNameRange     '1.0.3',
+128 silly addNameRange     '1.0.4',
+128 silly addNameRange     '1.1.0',
+128 silly addNameRange     '2.0.0',
+128 silly addNameRange     '2.1.0',
+128 silly addNameRange     '2.1.1',
+128 silly addNameRange     '2.1.2',
+128 silly addNameRange     '2.2.0',
+128 silly addNameRange     '2.3.0',
+128 silly addNameRange     '2.3.1',
+128 silly addNameRange     '2.3.2' ] ]
+129 verbose addNamed [ 'pg-hstore', '2.3.2' ]
+130 verbose addNamed [ '2.3.2', '2.3.2' ]
+131 silly lockFile 67b7732c-pg-hstore-2-3-2 pg-hstore@2.3.2
+132 verbose lock pg-hstore@2.3.2 /Users/sfielder/.npm/67b7732c-pg-hstore-2-3-2.lock
+133 silly lockFile 2af73ba3-rg-pg-hstore-pg-hstore-2-3-2-tgz https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+134 verbose lock https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz /Users/sfielder/.npm/2af73ba3-rg-pg-hstore-pg-hstore-2-3-2-tgz.lock
+135 verbose addRemoteTarball [ 'https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz',
+135 verbose addRemoteTarball   'f7ef053e7b9b892ae986af2f7cbe86432dfcf24f' ]
+136 silly lockFile 9a58a886-async-0-9-0 async@0.9.0
+137 silly lockFile 9a58a886-async-0-9-0 async@0.9.0
+138 silly lockFile 7f39d2c2-async-0-9-0 async@^0.9.0
+139 silly lockFile 7f39d2c2-async-0-9-0 async@^0.9.0
+140 info retry fetch attempt 1 at 11:25:32
+141 verbose fetch to= /var/folders/0m/t3xqm78s6l5gnvscv6t3qg4w2l8gpy/T/npm-4390-bg46Tj0V/registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+142 http GET https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+143 http 200 https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+144 http 200 https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+145 silly lockFile 2af73ba3-rg-pg-hstore-pg-hstore-2-3-2-tgz https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+146 silly lockFile 2af73ba3-rg-pg-hstore-pg-hstore-2-3-2-tgz https://registry.npmjs.org/pg-hstore/-/pg-hstore-2.3.2.tgz
+147 silly lockFile 67b7732c-pg-hstore-2-3-2 pg-hstore@2.3.2
+148 silly lockFile 67b7732c-pg-hstore-2-3-2 pg-hstore@2.3.2
+149 silly lockFile d81490db-pg-hstore-2-3-1 pg-hstore@^2.3.1
+150 silly lockFile d81490db-pg-hstore-2-3-1 pg-hstore@^2.3.1
+151 silly lockFile f5dbddfd-stry-npmjs-org-ejs-ejs-2-3-1-tgz https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+152 silly lockFile f5dbddfd-stry-npmjs-org-ejs-ejs-2-3-1-tgz https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz
+153 silly lockFile 823d5f08-ejs-2-3-1 ejs@2.3.1
+154 silly lockFile 823d5f08-ejs-2-3-1 ejs@2.3.1
+155 silly lockFile 79d6d594-ejs-2-3-1 ejs@^2.3.1
+156 silly lockFile 79d6d594-ejs-2-3-1 ejs@^2.3.1
+157 error Error: EACCES, mkdir '/Users/sfielder/.npm/ejs/2.3.1'
+157 error  { [Error: EACCES, mkdir '/Users/sfielder/.npm/ejs/2.3.1']
+157 error   errno: 3,
+157 error   code: 'EACCES',
+157 error   path: '/Users/sfielder/.npm/ejs/2.3.1',
+157 error   parent: 'node-js-getting-started' }
+158 error Please try running this command again as root/Administrator.
+159 error System Darwin 12.5.0
+160 error command "node" "/usr/local/bin/npm" "install"
+161 error cwd /Users/sfielder/Documents/Warehouse_workspace/contactmap-demoapp
+162 error node -v v0.10.26
+163 error npm -v 1.4.13
+164 error path /Users/sfielder/.npm/ejs/2.3.1
+165 error code EACCES
+166 error errno 3
+167 error stack Error: EACCES, mkdir '/Users/sfielder/.npm/ejs/2.3.1'
+168 verbose exit [ 3, true ]
