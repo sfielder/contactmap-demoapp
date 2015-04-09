@@ -79,6 +79,31 @@ function geocode_contact(contact, callback) {
 	}
 }
 
+var account_locations = [];
+function geocode_account(account, callback) {
+	if (account.values.billingcountry ) {
+
+		var addr = account.values.billingcountry;
+
+		geocode(addr, function(geocode) {
+			if (geocode) {
+				callback(null, {name: escape(account.billingcountry), lat: geocode.lat, lon:geocode.lon});
+			} else {
+				callback();
+			}
+		});
+	} else {
+		callback();
+	}
+}
+
+
+function load_accounts(callback) {
+	Account.findAll({where: { billingcountry: ['DE','NL','GB']} , limit: 100}).then(function(rows) {
+		async.map(rows, geocode_account, callback);
+	});
+}
+
 function load_contacts(callback) {
 	Contact.findAll({limit:200}).then(function(rows) {
 		async.map(rows, geocode_contact, callback);
@@ -105,32 +130,55 @@ app.get('/', function(req, res) {
 
 app.get('/accounts', function(req, res) {
 
-	Account.findAll().then(function(rows){
-		console.log("rows " + JSON.stringify(rows));
+  load_accounts(function(error, account_locations) {
 
-		map = new HashMap();
-		assoc_array = [];
+		Account.findAll({where: { billingcountry: ['DE','NL','GB']} , limit: 100})
 
-		for(var i = 0; i < rows.length; i++){
+				.then(function(rows){
 
-			if("undefined" != typeof assoc_array[rows[i].billingcountry]) {
-				map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+				console.log("rows " + JSON.stringify(rows));
 
-			}
-			else {
-				assoc_array[rows[i].billingcountry] = new Array();
-				map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+				map = new HashMap();
+				geomap = new HashMap();
+				assoc_array = [];
 
-			}
+				for(var i = 0; i < rows.length; i++){
+
+					if("undefined" != typeof assoc_array[rows[i].billingcountry]) {
+						map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+					}
+					else {
+						assoc_array[rows[i].billingcountry] = new Array();
+						map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
+
+					}
 
 
-		}
+				}
 
-		console.log("map " + JSON.stringify(map));
+				console.log("map " + JSON.stringify(map));
+				var mapkeys = map.keys();
 
-		res.render('accounts', {account_locations: rows, account_map: map});
+				for(var i = 0; i < mapkeys.length; i++){
+
+					console.log("COUNTRY: " + mapkeys[i]);
+
+					//geomap.set(mapkeys[i],geocode_country(mapkeys[i], callback));
+
+					//console.log("GEOMAP: " + JSON.stringify(geomap));
+
+
+				}
+
+				console.log("account_locations: ", account_locations);
+				res.render('accounts', {map: map, account_locations: account_locations.filter(function(val) { return val })});
+
+			});
 
 	});
+
+
+
 
 
 });

@@ -1,14 +1,70 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0ymRb6jQAsgtoUnMO10-x6CjUe0PZK88">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 54.9000, lng: 25.3167},
+          zoom: 4
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        function addMarker(location, count) {
+          var marker = new google.maps.Marker({
+              position: {lat: location.lat, lng: location.lon},
+              map: map,
+              title: null
+          });
+          var infowindow = new google.maps.InfoWindow({
+              content: unescape(location.name + ': ' + count)
+          });
+          infowindow.open(map,marker);
+        }
+
+
+
+        <% account_locations.forEach(function(location) { %>
+
+        	    addMarker(JSON.parse('<%- JSON.stringify(location) %>'),<%= map.get(location.name) %>);
+
+        <% }); %>
+
+        setTimeout(function() {
+          map.setCenter({lat: 54.9000, lng: 25.3167});
+        }, 800);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </head>
   <body>
-
-    <ul><% map.forEach(function(value, key) { %>
-	    <li> <%=key %> : <%= value %> </li>
-      <% }); %>
-  </ul>
-
-
+    <div id="map-canvas"></div>
+    <div>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--  <ul><% map.forEach(function(value, key) { %>
+	    <li> <%=key %> : <%= value %>);
+      <% }); %>
+  </ul> -->
