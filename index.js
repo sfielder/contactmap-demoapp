@@ -140,6 +140,7 @@ app.get('/accounts', function(req, res) {
 
 				map = new HashMap();
 				geomap = new HashMap();
+				accountloc_geomap = new HashMap();
 				assoc_array = [];
 
 				for(var i = 0; i < rows.length; i++){
@@ -156,22 +157,24 @@ app.get('/accounts', function(req, res) {
 
 				}
 
-				console.log("map " + JSON.stringify(map));
-				var mapkeys = map.keys();
 
-				for(var i = 0; i < mapkeys.length; i++){
+				//create a unique map of country codes & lat/long for reference later
 
-					console.log("COUNTRY: " + mapkeys[i]);
 
-					//geomap.set(mapkeys[i],geocode_country(mapkeys[i], callback));
+				for(var i = 0; i < account_locations.length; i++){
+					var tmpObj = {};
+					tmpObj.countryName = account_locations[i].name;
+					tmpObj.latitude = account_locations[i].lat
+					tmpObj.longitude = account_locations[i].lon
+					tmpObj.count = assoc_array[account_locations[i].name].length;
 
-					//console.log("GEOMAP: " + JSON.stringify(geomap));
-
+					accountloc_geomap.set(account_locations[i].name, tmpObj);
 
 				}
 
-				console.log("account_locations: ", account_locations);
-				res.render('accounts', {map: map, account_locations: account_locations.filter(function(val) { return val })});
+				console.log("accountloc_geomap " + JSON.stringify(accountloc_geomap));
+
+				res.render('accounts', {accountloc_geomap: accountloc_geomap, account_locations: account_locations.filter(function(val) { return val })});
 
 			});
 

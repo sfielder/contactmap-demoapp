@@ -18,31 +18,52 @@
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
-        function addMarker(location, count) {
+        function addMarker(location) {
+        console.log("********* Location: " + JSON.stringify(location));
           var marker = new google.maps.Marker({
-              position: {lat: location.lat, lng: location.lon},
+              position: {lat: location.latitude, lng: location.longitude},
               map: map,
-              title: null
+              draggable: true,
+              title: location.countryName
           });
           var infowindow = new google.maps.InfoWindow({
-              content: unescape(location.name + ': ' + count)
+              content: unescape(location.countryName + ': ' + location.count)
           });
           infowindow.open(map,marker);
+
+
+          google.maps.event.addListener(marker, 'dragend', function() {
+
+            alert('map dragged');
+            console.log(marker.getTitle());
+            console.log(marker.getPosition());
+
+          } );
+
+
         }
 
 
 
-        <% account_locations.forEach(function(location) { %>
+        <% accountloc_geomap.keys().forEach(function(location) { %>
 
-        	    addMarker(JSON.parse('<%- JSON.stringify(location) %>'),<%= map.get(location.name) %>);
+        	    addMarker(JSON.parse('<%- JSON.stringify(accountloc_geomap.get(location)) %>'));
 
         <% }); %>
+
+      //  <% account_locations.forEach(function(location) { %>
+
+      //        addMarker(JSON.parse('<%- JSON.stringify(location) %>'),<%= map.get(location.name) %>);
+
+      //  <% }); %>
 
         setTimeout(function() {
           map.setCenter({lat: 54.9000, lng: 25.3167});
         }, 800);
       }
+
       google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
   </head>
   <body>
