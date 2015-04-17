@@ -2,8 +2,8 @@
     "name": "Contact Map Demo App",
     "description": "See how to access Salesforce data in Node.js using Heroku Connect. Click 'View it' at the bottom once you've deployed to continue setup.",
     "logo": "https://raw.githubusercontent.com/heroku/heroku-connect-quickstart/master/connect-logo.png",
-    "website": "https://github.com/scottpersinger/contactmap-demoapp",
-    "repository": "https://github.com/scottpersinger/contactmap-demoapp",
+    "website": "https://github.com/sfielder/contactmap-demoapp",
+    "repository": "https://github.com/sfielder/contactmap-demoapp",
     "success_url": "/create",
     "addons": ["heroku-postgresql", "herokuconnect:demo"]
 }
