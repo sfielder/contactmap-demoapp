@@ -2,6 +2,7 @@ var Sequelize = require('sequelize');
 var async = require('async');
 var HashMap = require('hashmap');
 var geocode = require('./geocode');
+var rgeocode = require('./rgeocode');
 
 // ************** DATABASE MODELS ***********************
 
@@ -79,6 +80,26 @@ function geocode_contact(contact, callback) {
 	}
 }
 
+
+var country_locations = [];
+
+function geocode_country(country, callback) {
+	if (country) {
+
+		geocode(country, function(geocode) {
+			if (geocode) {
+				callback(null, {country: escape(country), lat: geocode.lat, lon:geocode.lon});
+			} else {
+				callback();
+			}
+		});
+	} else {
+		callback();
+	}
+}
+
+
+
 var account_locations = [];
 function geocode_account(account, callback) {
 	if (account.values.billingcountry ) {
@@ -97,6 +118,20 @@ function geocode_account(account, callback) {
 	}
 }
 
+var account_counts = [];
+function count_account(count, country, callback) {
+	console.log("INSIDE ACCOUNT COUNTS");
+
+	if (country ) {
+
+		var addr = account.values.billingcountry;
+		callback(null, {country: escape(country), count:count});
+
+	} else {
+		callback();
+	}
+}
+
 
 function load_accounts(callback) {
 	Account.findAll({where: { billingcountry: ['DE','NL','GB']} , limit: 100}).then(function(rows) {
@@ -104,11 +139,21 @@ function load_accounts(callback) {
 	});
 }
 
+
+
 function load_contacts(callback) {
 	Contact.findAll({limit:200}).then(function(rows) {
 		async.map(rows, geocode_contact, callback);
 	});
 }
+
+function load_countries(callback) {
+	async.map(["DE","NL","GB", "PL"], geocode_country, callback);
+
+}
+
+
+
 
 
 // EXPRESS
@@ -128,59 +173,125 @@ app.get('/', function(req, res) {
 	});
 });
 
-app.get('/accounts', function(req, res) {
 
-  load_accounts(function(error, account_locations) {
+app.get('/updatecountry', function(req, res) {
+	console.log("/updatecountry ");
+	console.log("REQUEST QUERY: ************ " + JSON.stringify(req.query));
+	//{"current":"NL","lat":"52.024601490848866","lng":"19.52954724999995"}
 
-		Account.findAll({where: { billingcountry: ['DE','NL','GB']} , limit: 100})
+	var geo = req.query.lat+','+req.query.lng;
 
-				.then(function(rows){
+	console.log("***************** geo: " + geo);
 
-				console.log("rows " + JSON.stringify(rows));
-
-				map = new HashMap();
-				geomap = new HashMap();
-				accountloc_geomap = new HashMap();
-				assoc_array = [];
-
-				for(var i = 0; i < rows.length; i++){
-
-					if("undefined" != typeof assoc_array[rows[i].billingcountry]) {
-						map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
-					}
-					else {
-						assoc_array[rows[i].billingcountry] = new Array();
-						map.set(rows[i].billingcountry, assoc_array[rows[i].billingcountry].push(rows[i]));
-
-					}
+	rgeocode(geo, function(rgeocode) {
+		if (rgeocode) {
+			console.log("RGEOCODE ************ : " + JSON.stringify(rgeocode));
+			console.log("RGEOCODE short************ : " + JSON.stringify(rgeocode.short));
+			console.log("RGEOCODE long************ : " + JSON.stringify(rgeocode.long));
 
 
-				}
+			Account.update(
+				 {
+				    billingcountry: rgeocode.short
+				 },
+				 {
+				    where: { billingcountry : req.query.currentCountry }
+				 })
+				 .success(function (result) {
+					console.log("UPDATE RESULTS ********************** " + result);
+					res.redirect('http://localhost:5000/accounts');
+				 })
+				 .error(function (error) {
+					console.log("UPDATE error ********************** " + error);
 
+				 });
 
-				//create a unique map of country codes & lat/long for reference later
+			};
 
-
-				for(var i = 0; i < account_locations.length; i++){
-					var tmpObj = {};
-					tmpObj.countryName = account_locations[i].name;
-					tmpObj.latitude = account_locations[i].lat
-					tmpObj.longitude = account_locations[i].lon
-					tmpObj.count = assoc_array[account_locations[i].name].length;
-
-					accountloc_geomap.set(account_locations[i].name, tmpObj);
-
-				}
-
-				console.log("accountloc_geomap " + JSON.stringify(accountloc_geomap));
-
-				res.render('accounts', {accountloc_geomap: accountloc_geomap, account_locations: account_locations.filter(function(val) { return val })});
-
-			});
 
 	});
 
 
+
+});
+
+
+app.get('/accounts', function(req, res) {
+
+
+
+
+	load_countries(function(error, country_locations) {
+
+		console.log('************** COUNTRY LOCATIONS **************** : ' + JSON.stringify(country_locations));
+
+
+
+		var countryArray = ["DE","NL","GB", "PL"]; //"DE","NL","GB", "PL"
+		var countArray = [];
+		var countryAccountHash = new HashMap();
+		var callbackCounter = 0;
+
+		for(var i = 0; i < countryArray.length; i++){
+
+
+
+				async.series([
+
+						function(callback){
+				        // do some stuff ...
+				        callback(null, countryArray[i]);
+				    },
+				    function(callback){
+				        // do some more stuff ...
+								Account.count({ where: {billingcountry: countryArray[i]}})
+								.error(function(err) {
+							    // error callback
+								})
+							  .success(function(c) {
+							    // success callback
+
+									console.log("COUNT QUERY: " + c);
+									callbackCounter++
+									callback(null, c);
+							  });
+
+				    }
+				],
+				// optional callback
+				function(err, results){
+
+					countryAccountHash.set(results[0], results);
+
+						if (callbackCounter == countryArray.length) {
+							console.log("accountloc_geomap " + JSON.stringify(countryAccountHash));
+							console.log('************** COUNTRY LOCATIONS **************** : ' + JSON.stringify(country_locations));
+
+							var tmpHashCL = new HashMap();
+
+							for(i = 0; i < country_locations.length; i++){
+
+								var cTmp = {};
+								cTmp.country = country_locations[i].country;
+								cTmp.lat = country_locations[i].lat;
+								cTmp.lon = country_locations[i].lon;
+								cTmp.count = countryAccountHash.get(country_locations[i].country)[1];
+
+								tmpHashCL.set(country_locations[i].country, cTmp);
+
+							};
+
+							console.log("tmpHashCL " + JSON.stringify(tmpHashCL));
+
+							res.render('accounts', {accountloc_geomap: tmpHashCL});
+
+						}
+
+					})
+			};
+
+
+	});
 
 
 
