@@ -56,13 +56,14 @@
             var lng = position.D;
             console.log("********** lat + Lon: " + lat + lng);
 
-            var request = new XMLHttpRequest();
-
-            request.open("GET","updatecountry?currentCountry="+location.country+"&lat="+lat+"&lng="+lng,true);
-            var send = request.send();
-
-
-            console.log("SEND: ************ " + JSON.stringify(send));
+            $.ajax({
+                  url: "updatecountry?currentCountry="+location.country+"&lat="+lat+"&lng="+lng,
+                  dataType: "json",
+               }).done(function(data) {
+                  console.log("RESPONSE DATA ON CLIENT" + data);
+                  $('#myModal').modal('hide');
+                  window.location.replace("/accounts");
+               });
 
 
           } );
@@ -94,7 +95,9 @@
       <h3 id="myModalLabel">Account Update</h3>
     </div>
     <div class="modal-body">
-      <p>Updating…</p>
+      <div class="progress progress-striped active">
+  <div class="bar" style="width: 100%;"></div>
+</div>
     </div>
     <div class="modal-footer">
     </div>

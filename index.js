@@ -199,7 +199,8 @@ app.get('/updatecountry', function(req, res) {
 				 })
 				 .success(function (result) {
 					console.log("UPDATE RESULTS ********************** " + result);
-					res.redirect('http://localhost:5000/accounts');
+
+					res.send(result);
 				 })
 				 .error(function (error) {
 					console.log("UPDATE error ********************** " + error);
@@ -217,8 +218,6 @@ app.get('/updatecountry', function(req, res) {
 
 
 app.get('/accounts', function(req, res) {
-
-
 
 
 	load_countries(function(error, country_locations) {
